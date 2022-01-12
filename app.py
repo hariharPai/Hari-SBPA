@@ -20,7 +20,7 @@ def home():
             user = request.form["userid"]
             data=recommend.getTopProducts(user)
         except:
-            data="<b>UserNotFound</b>";
+            data="<center><b>UserNotFound</b></center>";
     return render_template('index.html', data=data, flag=flag)
 
 
