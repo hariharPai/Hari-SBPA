@@ -13,10 +13,14 @@ app = Flask(__name__)  # intitialize the flaks app  # common
 def home():
     flag = False 
     data = ""
+    
     if request.method == 'POST':
-        flag = True
-        user = request.form["userid"]
-        data=recommend.getTopProducts(user)
+        try:
+            flag = True
+            user = request.form["userid"]
+            data=recommend.getTopProducts(user)
+        except:
+            data="UserNotFound";
     return render_template('index.html', data=data, flag=flag)
 
 
